@@ -16,6 +16,8 @@ data_df = pd.read_csv('./dataset/dataset_predicted_sentiment.csv')
 model = joblib.load('sentiment_model.pkl')
 vectorizer = joblib.load('vectorizer.pkl')
 
+nltk.download('stopwords')
+
 # Initialize vectorizer
 tfidf_vectorizer = TfidfVectorizer()
 tfidf_vectorizer.fit(data_df['tweet'])
