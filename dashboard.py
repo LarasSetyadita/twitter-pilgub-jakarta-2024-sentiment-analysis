@@ -20,6 +20,9 @@ vectorizer = joblib.load('vectorizer.pkl')
 tfidf_vectorizer = TfidfVectorizer()
 tfidf_vectorizer.fit(data_df['tweet'])
 
+nltk.download('vader_lexicon')
+nltk.download('stopwords')
+
 def preprocess(text):
     factory = StemmerFactory()
     stemmer = factory.create_stemmer()
