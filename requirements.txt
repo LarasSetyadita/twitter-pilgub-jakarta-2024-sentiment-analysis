@@ -9,3 +9,4 @@ Sastrawi==1.0.1
 wordcloud==1.9.3
 requests==2.32.3
 nltk==3.9.1
+nltk-stopwords==2.0.0
