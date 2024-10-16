@@ -12,7 +12,7 @@ from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Load data and models
-data_df = pd.read_csv('dataset_predicted_sentiment.csv')
+data_df = pd.read_csv('./dataset/dataset_predicted_sentiment.csv')
 model = joblib.load('sentiment_model.pkl')
 vectorizer = joblib.load('vectorizer.pkl')
 
