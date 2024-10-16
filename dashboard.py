@@ -12,11 +12,9 @@ from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Load data and models
-data_df = pd.read_csv('./dataset/dataset_predicted_sentiment.csv')
-model = joblib.load('sentiment_model.pkl')
-vectorizer = joblib.load('vectorizer.pkl')
-
-nltk.download('stopwords')
+data_df = pd.read_csv('dataset_predicted_sentiment.csv')
+model = joblib.load('sentiment_model1.pkl')
+vectorizer = joblib.load('vectorizer1.pkl')
 
 # Initialize vectorizer
 tfidf_vectorizer = TfidfVectorizer()
@@ -149,6 +147,29 @@ def buat_word_cloud(teks, title):
     plt.axis('off')
     st.pyplot(plt)
 
+def pie_chart(data):
+    labels = data['Sentiment']
+    sizes = data['Count']
+    colors = ['#66c2a5', '#fc8d62', '#8da0cb']
+
+    fig, ax = plt.subplots()
+    ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90, colors=colors)
+    ax.axis('equal') 
+    ax.set_title('Persentase Sentimen Tweet')
+    st.pyplot(fig)
+
+def persebaran_data():
+    sentiment_count = data_df['predict_sentiment'].value_counts()
+    sentiment_data = {
+        'Sentiment': ['Positif', 'Negatif', 'Netral'],
+        'Count': [
+            sentiment_count.get('Positif', 0),
+            sentiment_count.get('Negatif', 0),
+            sentiment_count.get('Netral', 0)
+        ]
+    }
+    pie_chart(sentiment_data)
+
 # Sidebar
 st.sidebar.title("Navigasi")
 
@@ -160,8 +181,12 @@ if st.sidebar.button("Dashboard"):
     st.session_state.page = 'Dashboard'
 if st.sidebar.button("Word Cloud"):
     st.session_state.page = 'Word Cloud'
+if st.sidebar.button("Persebaran Data"):
+    st.session_state.page = 'Persebaran Data'
 
 if st.session_state.page == 'Dashboard':
-    dashboard_page()
+    dashboard_page() 
 elif st.session_state.page == 'Word Cloud':
     word_cloud_page()
+elif st.session_state.page == 'Persebaran Data':
+    persebaran_data()
