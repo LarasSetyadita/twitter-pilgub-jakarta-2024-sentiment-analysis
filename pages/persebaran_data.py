@@ -32,13 +32,11 @@ def donut_chart(selected_theta, data1):
 def main():
     st.title('Analisis Sentiment data tweet')
     label_df = x_df['predict_sentiment'].value_counts().reset_index()# Mengganti nama kolom
-    st.write(label_df)
-    # data = {
-    #     'company': ['Positif', 'Negatif', 'Netral'],
-    #     'jumlah kata': [label_df.iloc[0]['count'], label_df.iloc[1]['count'], label_df.iloc[2]['count']],
-    # }
-    #data = pd.read_csv('./dataset/label_count.csv')
-    #data = pd.DataFrame(data)
+    data = {
+        'company': ['Positif', 'Negatif', 'Netral'],
+        'jumlah kata': [label_df.iloc[0]['count'], label_df.iloc[1]['count'], label_df.iloc[2]['count']],
+    }
+    data = pd.DataFrame(data)
 
     col1, col2, col3 = st.columns(3)
 
@@ -48,10 +46,15 @@ def main():
         st.markdown(card_metric('Jumlah kata negatif', label_df.iloc[1]['count']), unsafe_allow_html=True)
     with col3:
         st.markdown(card_metric('Jumlah kata netral', label_df.iloc[2]['count']), unsafe_allow_html=True)
-    col1, col2 = st.columns(3)
+
+    st.divider()
+    st.subheader('Perbandingan tweet positif dan tweet negative')
     donut_theta = 'jumlah kata'
     donut_chart(donut_theta, data)
 
+
+    st.divider()
+    
     col1, col2, col3 = st.columns(3)
     with col1:
         st.markdown('**User dengan tweet positif terbanyak**')
