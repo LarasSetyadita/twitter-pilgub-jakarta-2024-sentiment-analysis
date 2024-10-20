@@ -154,8 +154,24 @@ def main():
                 #     st.warning("Data untuk donut chart kosong.")
 
                 # donut_theta = st.sidebar.selectbox('Select data', ('Model Naive Bayes', 'Model Neural Network'))
-                st.write(word_df)
 
+                def card_metric(label, value):
+                    return f"""
+                    <div class="css-1r6slb0 e1tzin5v2">
+                        <h6>{label}</h6>
+                        <p style='font-size:32px; font-weight:600'>{value}</p>
+                    </div>
+                    """
+
+                # Membuat tampilan metrik dalam bentuk grid dengan kolom
+                col1, col2, col3 = st.columns(3)
+
+                with col1:
+                    st.markdown(card_metric('Jumlah kata positif', word_df.iloc[0, 1]), unsafe_allow_html=True)
+                with col2:
+                    st.markdown(card_metric('Jumlah kata negatif', word_df.iloc[1, 1]), unsafe_allow_html=True)
+                with col3:
+                    st.markdown(card_metric('Jumlah kata netral', word_df.iloc[2, 1]), unsafe_allow_html=True)
 
 if __name__ == '__main__':
      main()
