@@ -1,0 +1,11 @@
+streamlit
+pandas
+plost
+altair
+matplotlib
+wordcloud
+sastrawi
+nltk
+stemmer
+stopwords
+scikit-learn
