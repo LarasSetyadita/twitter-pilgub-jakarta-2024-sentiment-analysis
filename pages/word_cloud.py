@@ -16,7 +16,7 @@ def buat_word_cloud(teks, title):
     st.pyplot(plt)
 
 def main():
-    st.markdown('Analisis Word Cloud')
+    st.title('Analisis Word Cloud')
     option = st.selectbox('Pilih Word Cloud yang ingin Anda Lihat', ('Positif', 'Negatif', 'Netral'))
     if option == 'Positif':
         df_positif = x_df[x_df['predict_sentiment'] == 'positive']
