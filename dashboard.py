@@ -5,7 +5,9 @@ import plost
 import pandas as pd
 import pickle
 import re
+
 import nltk
+nltk.download('stopwords')
 
 
 #####################
