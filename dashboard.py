@@ -1,14 +1,11 @@
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
-from fontTools.ttx import process
 from nltk.corpus import stopwords
-from stopwords import languages
 import streamlit as st
 import plost
 import pandas as pd
 import pickle
 import re
-import nltk
-#import altair as alt
+
 
 
 #####################
@@ -34,12 +31,11 @@ data = pd.DataFrame(data)
 ## Import models ##
 ###################
 
-with open('./.models/feature-bow.p', 'rb') as f:
+with open('./models/feature-bow.p', 'rb') as f:
     feature_bow = pickle.load(f)
-with open('./.models/model-nb.p', 'rb') as f:
+with open('./models/model-nb.p', 'rb') as f:
     model_nb = pickle.load(f)
-with open('./.models/model-nn.p', 'rb') as f:
-    model_nn = pickle.load(f)
+
 
 #feature_bow.fit(x_df['tweet'])
 ####################
@@ -139,7 +135,6 @@ def main():
                 st.write("Processed Text:", processed_text)
                 featured_text = feature_bow.transform([processed_text])
                 sentiment_nb = model_nb.predict(featured_text)[0]
-                sentiment_nn = model_nn.predict(featured_text)[0]
                 if sentiment_nb == 'Positive':
                     st.info("Prediksi Naive Bayes: Positif")
                 elif sentiment_nb == 'Negative':
