@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 
-st.set_page_config(layout='wide')
+
 
 x_df = pd.read_csv('./dataset/dataset_predicted_sentiment.csv')
 
