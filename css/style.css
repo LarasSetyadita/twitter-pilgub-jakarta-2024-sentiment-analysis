@@ -1,0 +1,24 @@
+/* Card */
+/* Adapted from https://startbootstrap.com/theme/sb-admin-2 */
+div.css-1r6slb0.e1tzin5v2 {
+    background-color: #FFFFFF; /* Mengatur warna latar belakang kartu menjadi putih */
+    border: 1px solid #CCCCCC; /* Menambahkan border dengan warna abu-abu terang */
+    padding: 5% 5% 5% 10%; /* Mengatur padding di dalam kartu: atas, kanan, bawah, kiri */
+    border-radius: 5px; /* Membuat sudut kartu membulat dengan radius 5 piksel */
+
+    border-left: 0.5rem solid #9AD8E1 !important; /* Menambahkan border kiri berwarna biru muda dengan ketebalan 0.5rem */
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important; /* Menambahkan bayangan pada kartu untuk memberikan efek kedalaman */
+}
+
+.column-border {
+    background-color: #f2eded; /* Mengatur warna latar belakang */
+    border: 1px solid #CCCCCC; /* Border abu-abu */
+    padding: 10px; /* Padding di dalam div */
+    border-radius: 5px; /* Sudut membulat */
+}
+
+.custom-divider {
+    border: none; /* Menghilangkan border default */
+    height: 20px; /* Ketebalan garis */
+    background-color: #07D1FF; /* Warna garis */
+    margin: 20px 0; /* Margin atas dan bawah */
