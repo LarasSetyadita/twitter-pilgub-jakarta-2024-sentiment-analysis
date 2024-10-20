@@ -134,7 +134,6 @@ def main():
         if text_input:
             if text_input:
                 processed_text = preprocess(text_input)
-                st.write("Processed Text:", processed_text)
                 featured_text = feature_bow.transform([processed_text])
                 sentiment_nb = model_nb.predict(featured_text)[0]
                 if sentiment_nb == 'Positive':
